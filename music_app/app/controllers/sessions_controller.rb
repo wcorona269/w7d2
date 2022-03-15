@@ -10,11 +10,11 @@ class SessionsController < ApplicationController
   end
 
   def login(user)
-    session[:session_token] = user.reset_session_token
+    session[:session_token] = user.reset_session_token!
   end
 
   def logout!(user)
-    current_user.reset_session_token!
+    user.reset_session_token!
     session[:session_token] = nil
     @current_user = nil
   end
@@ -22,4 +22,11 @@ class SessionsController < ApplicationController
   def logged_in?
     !!current_user
   end
+
+  def create
+
+  end
+
+
+
 end

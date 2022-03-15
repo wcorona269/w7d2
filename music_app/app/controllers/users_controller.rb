@@ -21,9 +21,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     render :show
   end
-
+  
   def user_params
     params.require(:user).permit(:email, :password_digest, :password, :session_token)
   end
+
+  
 
 end
